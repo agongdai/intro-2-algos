@@ -8,15 +8,13 @@
 
 const n = 1000000000;
 
-let i = 0;
-console.time('while-loop');
-while (i++ < n) {
-  const j = i; // dummy nothing
-}
-console.timeEnd('while-loop');
-
 console.time('for-loop');
 for(let f = 0; f < n; f++) {
   const j = f;
 }
 console.timeEnd('for-loop');
+
+const usedByFor = process.memoryUsage();
+for (let key in usedByFor) {
+  console.log(`${key} ${Math.round(usedByFor[key] / 1024 / 1024 * 100) / 100} MB`);
+}
