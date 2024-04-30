@@ -20,4 +20,18 @@ const randomNumbers = (n, scale = 1000) => {
   return numbers;
 }
 
-export { readInput, printMemoryUsage, randomNumbers };
+const printLargeArray = (arr) => {
+  if (arr.length < 200) {
+    console.log(arr);
+  } else {
+    const step = Math.floor(arr.length / 100);
+    const sparseArr = [];
+    for (let i = 0; i < arr.length / step; i++) {
+      sparseArr.push(arr[i * step]);
+    }
+    console.log('Sparse array in step of', step, 'elements:');
+    console.log(sparseArr);
+  }
+}
+
+export { readInput, printMemoryUsage, randomNumbers, printLargeArray };

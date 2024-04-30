@@ -1,11 +1,8 @@
-import { readInput, printMemoryUsage, randomNumbers } from './_utils.mjs';
-
-// const input = await readInput();
-// const numbers = input.map(Number);
+import { printLargeArray, printMemoryUsage, randomNumbers } from './_utils.mjs';
 
 const numbers = randomNumbers(100000);
 
-console.log('Before sorting:', numbers);
+printLargeArray(numbers);
 console.log('sorting ...');
 console.time('insertion-sort');
 
@@ -19,7 +16,7 @@ for (let j = 1; j < numbers.length; j++) {
   numbers[i + 1] = key;
 }
 
-console.log('After sorting:', numbers);
+printLargeArray(numbers);
 console.timeEnd('insertion-sort');
 
 printMemoryUsage();
