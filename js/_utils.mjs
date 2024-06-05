@@ -29,9 +29,21 @@ const printLargeArray = (arr) => {
     for (let i = 0; i < arr.length / step; i++) {
       sparseArr.push(arr[i * step]);
     }
-    console.log('Sparse array in step of', step, 'elements:');
+    console.log(`Sparse array [size ${arr.length}] in step of ${step} elements:`);
     console.log(sparseArr);
   }
 }
 
-export { readInput, printMemoryUsage, randomNumbers, printLargeArray };
+const isArraySorted = (arr, increasingly = true) => {
+  for (let i = 1; i < arr.length; i++) {
+    if (increasingly && arr[i] < arr[i - 1]) {
+      return false;
+    }
+    if (!increasingly && arr[i] > arr[i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export { readInput, printMemoryUsage, randomNumbers, printLargeArray, isArraySorted };
